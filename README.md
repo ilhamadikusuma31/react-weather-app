@@ -1,7 +1,8 @@
-# Projek Website Prakiraan Cuaca di Kota-Kota Dunia
+# Projek Website Prakiraan Cuaca Kota-Kota Dunia
 
-user dapat melihat dan memilih kota yang dihendaki untuk dilihat prakiraan cuaca secara real time berdasarkan jam 
+User dapat melihat dan memilih kota yang dihendaki untuk dilihat prakiraan cuaca secara real time berdasarkan jam 
 
 ## Tech Stack
 
 react.js
+tailwind
