@@ -5,7 +5,7 @@ function TimeAndLocation() {
     <div>
         <div className="flex items-center justify-center my-6">
             <div className="text-white text-xl font-extralight">
-                Thursday, 04 Augustus 2022 | Local Time: 12:17 PM
+                Kamis, 04 Agustus 2022 | Waktu Lokal: 12:17 PM
             </div>
         </div>
         <div className="flex items-center justify-center my-3">
