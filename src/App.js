@@ -14,7 +14,7 @@ function App() {
     const data = await getFormattedWeatherData({q:"tegal"})
 
 
-    alert(data.name)
+    alert(data.daily[0])
   }
 
   fw();

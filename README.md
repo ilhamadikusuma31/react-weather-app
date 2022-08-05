@@ -4,5 +4,6 @@ User dapat melihat dan memilih kota yang dihendaki untuk dilihat prakiraan cuaca
 
 ## Tech Stack
 
-react.js
-tailwind
+React.js 
+<br>
+Tailwind
