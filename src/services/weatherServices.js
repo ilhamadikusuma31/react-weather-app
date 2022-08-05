@@ -1,6 +1,6 @@
 import { DateTime } from "luxon";
 
-const API_KEY = "0f252add29bc72d4d44556fc579a6f6c"
+const API_KEY = "a13ba20d5a0379e31184192627f012ca"
 const BASE_URL = "https://api.openweathermap.org/data/2.5"
 
 
@@ -56,7 +56,7 @@ const formatPrakiraanCuaca = (data)=>{
     hourly = hourly.slice(1,6).map(h=>{
         return{
             title: formatToLocalTime(h.dt, timezone, 'hh:mm a'),
-            temp : h.temp.day,
+            temp : h.temp,
             icon : h.weather[0].icon
         }
     });
@@ -92,8 +92,7 @@ const formatToLocalTime = (
     format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a"
 )=> DateTime.fromSeconds(secs).setZone(zone).toFormat(format)
 
-const iconUrl = (code) => `http://openweathermap.org/img/wn${code}@2x.png`
+const iconUrl = (code) => `http://openweathermap.org/img/wn/${code}@2x.png`;
 
 export default getFormattedWeatherData 
-
 export {formatToLocalTime, iconUrl}

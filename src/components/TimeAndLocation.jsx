@@ -1,16 +1,17 @@
 import React from 'react'
+import { formatToLocalTime } from '../services/weatherServices'
 
-function TimeAndLocation() {
+function TimeAndLocation({cuaca:{dt,timezone,name,country}}) {
   return (
     <div>
         <div className="flex items-center justify-center my-6">
             <div className="text-white text-xl font-extralight">
-                Kamis, 04 Agustus 2022 | Waktu Lokal: 12:17 PM
+                {formatToLocalTime(dt,timezone)}
             </div>
         </div>
         <div className="flex items-center justify-center my-3">
             <div className="text-white text-3xl font-medium">
-                Jakarta, ID
+                {`${name}, ${country}`}
             </div>
         </div>
     </div>
