@@ -1,7 +1,7 @@
 import { DateTime } from "luxon";
 
-const API_KEY = "a13ba20d5a0379e31184192627f012ca"
-const BASE_URL = "https://api.openweathermap.org/data/2.5"
+const API_KEY = "0f252add29bc72d4d44556fc579a6f6c";
+const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 
 //ini link kalo misalkeun mau sekali panggil
