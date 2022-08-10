@@ -7,6 +7,8 @@ import TemperatureAndDetails from './components/TemperatureAndDetails';
 import Forecast from './components/Forecast';
 import getFormattedWeatherData from './services/weatherServices';
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
@@ -14,15 +16,26 @@ function App() {
   const [query, setQuery] = useState({q:"jakarta"});
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
-
-
-  // useEffect, yang ada didalam array akan di follow up oleh react apakah ada perubahan
+  
+  // useEffect, yang ada didalam array akan di follow up oleh react apakah ada perubahan 
   useEffect(() => {
-    const fw = async () =>{
-      await getFormattedWeatherData({...query, units}).then((data)=>{setWeather(data)})}
-    fw();
+    const fetchWeather = async () => {
+      const message = query.q ? query.q : "lokasi sekarang.";
 
-  }, [query,units,weather]);
+      toast.info("mendapatkan cuaca " + message);
+
+      await getFormattedWeatherData({ ...query, units }).then((data) => {
+        toast.success(
+          `Sukses mendapatkan cuaca ${data.name}, ${data.country}.`
+        );
+
+        setWeather(data);
+      });
+    };
+
+    fetchWeather();
+  }, [query, units]);
+
 
   const formatBackground = () => {
     if (!weather) return "from-cyan-700 to-blue-700";
@@ -33,20 +46,23 @@ function App() {
   };
 
 
+
   return (
-    <div className="mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400">
-      <TopButton/>
-      <Inputs/>
+    <div
+    className={`mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br  h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}
+  >
+      <TopButton setQuery={setQuery} />
+      <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
       {weather && (
         <div>
           <TimeAndLocation cuaca={weather}/>
           <TemperatureAndDetails cuaca={weather}/>  
-          <Forecast judul="prakiraan per jam"/>
-          <Forecast judul="prakiraan per hari"/>
+          <Forecast judul="prakiraan per jam" items={weather.hourly}/>
+          <Forecast judul="prakiraan per hari" items={weather.daily}/>
         </div>
       )}
-
+      <ToastContainer autoClose={5000} theme="colored" newestOnTop={true} />      
     </div>
   );
 }

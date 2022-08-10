@@ -1,6 +1,7 @@
 import React from 'react'
 
-function TopButton() {
+
+function TopButton({setQuery}) {
 
     const cities = [
         {
@@ -26,15 +27,20 @@ function TopButton() {
     ]
 
 
-  return (
-    <div className="flex items-center justify-around my-3">
-            {cities.map(e => (
-            <button key={e.id} className="text-white font-medium text-lg">
-                {e.title}
-            </button>
-            ))}
+    return (
+    <div className="flex items-center justify-around my-6">
+      {cities.map((city) => (
+        <button
+          key={city.id}
+          className="text-white text-lg font-medium"
+          onClick={() => setQuery({ q: city.title })}
+        >
+          {city.title}
+        </button>
+      ))}
     </div>
-  )
+  );
 }
+
 
 export default TopButton
