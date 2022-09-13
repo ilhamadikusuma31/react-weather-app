@@ -5,8 +5,8 @@ const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 
 //ini link kalo misalkeun mau sekali panggil
-// https://api.openweathermap.org/data/2.5/onecall?
-// lat={lat}&lon={lon}&exclude={part}&appid={API key}
+//https://api.openweathermap.org/data/2.5/onecall?
+//lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
 //note:
 //fetch(sumberData).then(dapetinRespon)

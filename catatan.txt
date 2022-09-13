@@ -1,3 +1,0 @@
-https://api.openweathermap.org/data/2.5/onecall?lat=-6.8694&lon=109.1402&exclude=current&appid=0f252add29bc72d4d44556fc579a6f6c
-
-https://api.openweathermap.org/data/2.5/weather?q=tegal&appid=0f252add29bc72d4d44556fc579a6f6c

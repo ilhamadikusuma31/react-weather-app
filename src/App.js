@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 
-function App() {
+function App() {z
   const [query, setQuery] = useState({q:"jakarta"});
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
@@ -37,24 +37,22 @@ function App() {
   }, [query, units]);
 
 
-  function anon(weather) {
-    if (!weather) {
-      return "from-cyan-700 to-blue-700"};
+  const formatBackground = () => {
+    if (!weather) return "from-cyan-700 to-blue-700";
     const threshold = units === "metric" ? 20 : 60;
     if (weather.temp <= threshold) return "from-cyan-700 to-blue-700";
-    return "from-yellow-700 to-orange-700";
-  }
 
- 
+    return "from-yellow-700 to-orange-700";
+  };
 
 
 
   return (
     <div
-    className={`mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br  h-fit shadow-xl shadow-gray-400 ${anon(weather)}`}
+    className={`mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br  h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}
   >
-      <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
       <TopButton setQuery={setQuery} />
+      <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
       {weather && (
         <div>
@@ -64,7 +62,7 @@ function App() {
           <Forecast judul="prakiraan per hari" items={weather.daily}/>
         </div>
       )}
-      <ToastContainer autoClose={5000} theme="colored" newestOnBottom={true} />      
+      <ToastContainer autoClose={5000} theme="colored" newestOnTop={true} />      
     </div>
   );
 }
